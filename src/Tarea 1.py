@@ -1,8 +1,9 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import square, sawtooth
 
-# Parámetros comunes
+#Parámetros
 f = 2  # Frecuencia en Hz
 t_cont = np.linspace(-1, 5, 1000)  # Tiempo continuo
 T_s = 0.01  # Periodo de muestreo
@@ -14,7 +15,7 @@ t_disc = np.arange(-1, 5, T_s)  # Tiempo discreto
 x1_cont = np.sin(2 * np.pi * f * t_cont)
 x1_disc = np.sin(2 * np.pi * f * t_disc)
 
-# 2. Señal exponencial con escalón
+# 2. Señal exponencial
 u_cont = np.heaviside(t_cont, 1)
 u_disc = np.heaviside(t_disc, 1)
 x2_cont = np.exp(-2 * t_cont) * u_cont
@@ -31,8 +32,8 @@ x4_disc = square(2 * np.pi * f * t_disc)
 # Función para graficar las tres versiones de cada señal
 
 def plot_signal_versions(t_cont, x_cont, t_disc, x_disc, title_base):
-    # Gráfica continua
-    plt.figure(figsize=(10, 3))
+    # Gráfica señal continua
+    plt.figure(figsize=(10, 4))
     plt.plot(t_cont, x_cont, 'b', label='Señal continua')
     plt.title(f'{title_base} - Continua')
     plt.xlabel('Tiempo [s]')
@@ -41,8 +42,8 @@ def plot_signal_versions(t_cont, x_cont, t_disc, x_disc, title_base):
     plt.tight_layout()
     plt.show()
 
-    # Gráfica discreta
-    plt.figure(figsize=(10, 3))
+    # Gráfica señal discreta
+    plt.figure(figsize=(10, 4))
     plt.stem(t_disc, x_disc, linefmt='g-', markerfmt='go', basefmt=" ", label='Señal discreta')
     plt.title(f'{title_base} - Discreta')
     plt.xlabel('Tiempo [s]')
@@ -51,8 +52,8 @@ def plot_signal_versions(t_cont, x_cont, t_disc, x_disc, title_base):
     plt.tight_layout()
     plt.show()
 
-    # Gráfica combinada
-    plt.figure(figsize=(10, 3))
+    # Gráfica señal continua y discreta
+    plt.figure(figsize=(10, 4))
     plt.plot(t_cont, x_cont, 'b', label='Señal continua')
     plt.stem(t_disc, x_disc, linefmt='r-', markerfmt='ro', basefmt=" ", label='Señal discreta')
     plt.title(f'{title_base} - Continua y Discreta')
