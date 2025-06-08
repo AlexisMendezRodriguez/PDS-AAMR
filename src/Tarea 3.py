@@ -10,7 +10,7 @@ except ValueError:
     print("Error: Asegúrate de ingresar valores numéricos.")
     exit()
 
-# Parámetros comunes
+# Parámetros para la señal de referencia
 t = np.linspace(0, 1, 1000)              # Tiempo continuo
 Ts = 0.01                                # Periodo de muestreo
 n = np.arange(0, 1, Ts)                  # Índices discretos
